@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.closehero {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    width: 30px;
+    z-index: 99999;
+}
+
+.heroleft, .heroright {
+    position:absolute;
+    top:50%;
+    height:100px;
+    margin-top:-50px;
+}
+
+.heroleft {
+    left:20px;
+}
+
+.heroright {
+    right:20px;
+}
+
+.herocontrols {
+    position: absolute;
+    bottom: 20px;
+    left:50%;
+    z-index: 99999;
+}
+
+.herocontrols span {
+    width:15px;
+    height:15px;
+    border:1px solid #3fc1c0;
+    margin-right:5px;
+    display:inline-block;
+}
+
+.herocontrols span.actv {
+    background:#3fc1c0;
+}
+
+.herotitle {
+    line-height:1em;
+}
+
+#innerhero {        
+    position:relative;
+    background:#1CCFC9;
+    color:#FFF;
+    text-align:center;
+    font-family: 'BenchNine', sans-serif;
+}
+
+#innerhero h1 {    
+    text-transform:uppercase;
+    font-size:46pt;
+    line-height:40pt;
+    margin:0;
+}
+
+#innerhero .time {
+    font-size:30pt;
+}
+
+#innerhero .spacer {
+    height: 5px;
+    background: #FFF;
+    margin:20px auto;
+    width:25%;
+}
+
+#innerhero-control {
+    position:absolute;
+    right:0;
+    bottom:0;
+    font-size:30pt;
+    width:100%;    
+}
+
+#innerhero-control span {
+    cursor:pointer;
+}
+
+#innerhero-control span:hover {
+    opacity:.5;
+}
+
+#innerhero .info {
+    overflow:hidden;
+    width:100%;
+    height:100%;
+}
+
+#hero {
+    background: rgba(0, 0, 0, .60);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    opacity: 0;
+}
+
+.dot {
+    z-index: 10;    
+    position: absolute;
+}
+
+@media (max-width:768px){
+    .heroleft, .heroright {
+        max-width:30px;
+        height:auto;
+        margin-top:-20px;
+    }
+
+    #innerhero .spacer {
+        height: 3px;        
+        margin:15px auto;        
+    }
+}
