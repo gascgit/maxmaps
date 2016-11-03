@@ -89,7 +89,6 @@ https://gascgit.github.io/maxmaps/
 
 **Remove directories and files:**
 
-* apple-touch-icon.png
 * browserconfig.xml
 * css/bootstrap
 * js/vendor
