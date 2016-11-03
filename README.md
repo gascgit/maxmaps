@@ -7,7 +7,9 @@
 
 **Link stylesheet in order after Bootstrap**
 
-* css/hero.css
+```html
+<link rel="stylesheet" href="css/hero.css">
+```
 
 
 ### SCRIPTS ###
