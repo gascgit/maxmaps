@@ -7,6 +7,10 @@ https://gascgit.github.io/maxmaps/
 
 ## Instructions ##
 
+### Images ###
+
+**Add images and directories inside 'img' folder to**
+
 ### CSS ###
 
 **Link stylesheet in order after Bootstrap**
