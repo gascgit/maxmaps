@@ -81,9 +81,9 @@
 
 **Remove directories and files:**
 
-*apple-touch-icon.png
-*browserconfig.xml
-*css/bootstrap
-*js/vendor
-*fonts
-*any uneccessary files
+* apple-touch-icon.png
+* browserconfig.xml
+* css/bootstrap
+* js/vendor
+* fonts
+* any uneccessary files
