@@ -9,7 +9,7 @@ https://gascgit.github.io/maxmaps/
 
 ### Images ###
 
-**Add images and directories inside 'img' folder to**
+**Add images and directories inside 'img' folder to 'img' folder**
 
 ### CSS ###
 
