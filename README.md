@@ -17,9 +17,9 @@
 **Link scripts in order after jQuery**
 
 ```html
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/jquery.rwdImageMaps.js"></script>
-<script src="js/hero.js"></script>
+<script src="js/jquery.rwdImageMaps.js" type="text/javascript"></script>
+<script src="js/hero.js" type="text/javascript"></script>
+<script src="js/flowtype.js" type="text/javascript"></script>
 ```
 
 
