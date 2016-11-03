@@ -41,3 +41,6 @@ Thumbs.db
 ######################
 /nbproject
 /node_modules
+/working
+gulpfile.js
+package.json
