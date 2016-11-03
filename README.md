@@ -14,9 +14,11 @@
 
 **Link scripts in order after jQuery**
 
-* js/jquery.rwdImageMaps.js
-* js/hero.js
-* js/flowtype.js
+```html
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.rwdImageMaps.js"></script>
+<script src="js/hero.js"></script>
+```
 
 
 ### CODE ###
