@@ -89,16 +89,14 @@ $(document).ready(function () {
         $("#innerhero").fadeOut(250, function () {
             $("#innerhero").remove();
             $(".dot").eq(nextdot).trigger("click");
-        });
-        console.log("actv: " + actvdot + " nxt:" + nextdot);
+        });        
     });
 
     $(document).on("click", ".closehero", heroClose);
     $(document).on("click", ".herocontrols span", function () {
         $(".herocontrols span").removeClass("actv");
         $(this).addClass("actv");
-        indx = $(".herocontrols span").index(this);
-        console.log(indx);
+        indx = $(".herocontrols span").index(this);        
         setPoints(indx);
     });
 
@@ -148,8 +146,7 @@ function setPoints() {
         active = $(".herocontrols span.actv").index();
         pincount = 0;
 
-        $(".mappoints:eq(" + active + ") area").each(function () {
-            console.log($(this).parent('map').attr("name"));
+        $(".mappoints:eq(" + active + ") area").each(function () {            
             point = points[active][pincount];
             coords = $(this).attr("coords").split(",");
 
