@@ -1,4 +1,6 @@
-$(document).ready(function () {
+
+(function ($, window, document) {
+
     $(window).load(function () {
         setTimeout(function () {
             $('img[usemap]').rwdImageMaps();
@@ -7,7 +9,6 @@ $(document).ready(function () {
             init();
         }, 250);
     });
-
     function heroBackground() {
         mW = $("#map1").width();
         mH = $("#map1").height();
@@ -22,10 +23,8 @@ $(document).ready(function () {
         mod = 10;
         mW = $("#map1").width() - (($("#map1").width() / mod) * 2);
         mH = $("#map1").height() - (($("#map1").height() / mod) * 2);
-
         pos = $(ths).data("pos").split(",");
         point = points[pos[0]][pos[1]];
-
         $(".dot").removeClass("actv"); // ALL PIN REMOVE ACTIVE
         $(ths).addClass("actv"); // SET THIS PIN ACTIVE
 
@@ -37,35 +36,30 @@ $(document).ready(function () {
             heroBackground();
         }
         $("#hero").html(inner);
-
         $('.heroinfo').flowtype({
             fontRatio: 15
         });
-
         $('.time, #innerhero-control').flowtype({
             fontRatio: 8
         });
-
         $('.herotitle').flowtype({
             fontRatio: 6
         });
-
         $("#innerhero").animate({
             opacity: 1
         }, 250);
     }
 
     $(document).on("click", ".dot", function () {
+        clearInterval(looper);
         if ($(this).attr("data-dx") !== "1") {
             heroOpen($(this));
         }
     });
-
     $(document).on('click', "#innerhero-control span", function () {
         pinCount = parseInt($(".dot").length);
         direction = parseInt($("#innerhero-control span").index(this));
         actvdot = parseInt($(".dot.actv").attr("data-dx"));
-
         if (direction === 0) {
             if (actvdot === 0) {
                 nextdot = parseInt(pinCount - 1);
@@ -89,17 +83,15 @@ $(document).ready(function () {
         $("#innerhero").fadeOut(250, function () {
             $("#innerhero").remove();
             $(".dot").eq(nextdot).trigger("click");
-        });        
+        });
     });
-
     $(document).on("click", ".closehero", heroClose);
     $(document).on("click", ".herocontrols span", function () {
         $(".herocontrols span").removeClass("actv");
         $(this).addClass("actv");
-        indx = $(".herocontrols span").index(this);        
+        indx = $(".herocontrols span").index(this);
         setPoints(indx);
     });
-
     $(".heroleft, .heroright").click(function () {
         $(this).css("opacity", .5).animate({
             opacity: 1
@@ -120,7 +112,7 @@ $(document).ready(function () {
         }
         $(".herocontrols span").eq(next).trigger("click");
     });
-});
+})(window.jQuery, window, document);
 
 function setcontrols() {
     countheros = $(".mappoints").length;
@@ -145,19 +137,16 @@ function setPoints() {
         $(".dot").remove();
         active = $(".herocontrols span.actv").index();
         pincount = 0;
-
-        $(".mappoints:eq(" + active + ") area").each(function () {            
+        $(".mappoints:eq(" + active + ") area").each(function () {
             point = points[active][pincount];
             coords = $(this).attr("coords").split(",");
-
-            pinwidth = (mainmapwidth * .044);
-            pinheight = (pinwidth * 1.3);
-
+            pinwidth = (mainmapwidth + 300) * .044;
+            pinheight = (pinwidth) * 1.3;
             //pinwidth = 70;
             pintop = 91;
             if (pincount === 1) {
-                pinwidth = pinwidth + 20;
-                pinheight = pinheight + 20;
+                pinwidth = pinwidth + 40;
+                pinheight = pinheight + 50;
             }
 
             coord1 = (coords[0] - (pinwidth / 2));
@@ -166,15 +155,28 @@ function setPoints() {
             $(dot).appendTo('#map1');
             pincount++;
         });
+        time = 150;
         setTimeout(function () {
             $(".dot").each(function () {
                 y = $(this).attr("data-y");
-                $(this).animate({
+                $(this).delay(time).animate({
                     top: y
-                }, 750);
-            })
+                }, 500);
+                time += 150;
+            });
+            loopIt();
         }, 250);
     }, 250);
+}
+
+looper = null;
+
+function loopIt() {
+    console.log("loop it");
+    clearInterval(looper);
+    looper = setTimeout(function () {
+        $(".heroright").trigger("click");
+    }, 5000);
 }
 
 function init() {
@@ -185,7 +187,6 @@ $(window).on('resize', function () {
     $("#hero").remove();
     setPoints();
 });
-
 points = [
     [
         {
